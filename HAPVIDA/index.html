@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+       * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+}
+
+/* Layout Principal */
+#container {
+    display: flex;
+    flex-wrap: wrap; /* Para funcionar em telas menores */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Colunas (Cards) */
+#divPaciente, 
+#divMedico, 
+#consultar, 
+#inserir {
+    flex: 1;
+    min-width: 280px; /* Evita que fiquem muito apertados */
+    background: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+#divPaciente:hover, #divMedico:hover {
+    transform: translateY(-5px);
+}
+
+/* Estilização das Listas */
+ul {
+    list-style: none;
+}
+
+li, ol { /* O seu JS cria <ol>, então estilizamos ambos */
+    background: #f8f9fa;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    border-left: 4px solid #3498db;
+}
+
+/* Inputs e Campos de Texto */
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+/* Botões */
+button {
+    cursor: pointer;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s;
+    margin-top: 5px;
+}
+
+/* Botão Pesquisar (Lupa) */
+#btn {
+    background-color: #ffbf49;
+    color: white;
+    width: 100%;
+}
+
+#btn:hover { background-color: #2980b9; }
+
+/* Botão Cadastrar dentro da div inserir */
+#inserir button:nth-of-type(1) {
+    background-color: #648add;
+    color: white;
+    width: 100%;
+}
+
+#inserir button:nth-of-type(1):hover { background-color: #3204ff; }
+
+/* Botão Atualizar */
+#atualizar {
+    background-color: #e27900;
+    color: white;
+    width: 100%;
+}
+
+#atualizar:hover { background-color: #d35400; }
+
+/* Destaque para o filtro de pesquisa */
+#filtro-pesquisa li, #filtro-pesquisa ol {
+    border-left-color: #e66903;
+    background-color: #fff5f5;
+}
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+        <div id="divPaciente">
+            <h1>LISTA DE PACIENTES</h1>
+            <ul id="lista-pacientes">
+
+            </ul>
+        </div>
+        <div id="divMedico">
+            <h1>LISTA DE MÉDICOS</h1>
+            <ul id="lista-medicos">
+            </ul>
+        </div>
+
+        <div id="consultar">
+            <h1>Pesquisar consulta</h1>
+            <input type="text" id="nomePaciente" placeholder="nomePaciente">
+            <button id="btn" value="Pesquisar" onclick="buscarNome()">🔍</button>
+            <div id="pesquisa-consulta">
+                <ul id="filtro-pesquisa">
+
+                </ul>
+            </div>
+        </div>
+
+        <div id="inserir">
+            <h1>Cadastrar Paciente</h1>
+            <input type="text" id="novo-paciente" placeholder="nomePaciente">
+            <button id="btn" value="Pesquisar" onclick="cadastrarPaciente()">Cadastrar</button>
+            <button id="atualizar" value="Atualizar" onclick="atualizarPaciente()">Atualizar</button>
+        </div>    
+    </div>
+
+
+<script src="app.js"></script>
+</body>
+
+</html>
